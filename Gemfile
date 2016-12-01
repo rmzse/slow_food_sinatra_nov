@@ -27,7 +27,7 @@ group :development, :test do
   gem 'cucumber'
   gem 'rspec'
   gem 'capybara'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'dm-rspec'
   gem 'database_cleaner'
   gem 'launchy'
