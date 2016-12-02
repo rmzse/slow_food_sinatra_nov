@@ -1,17 +1,35 @@
-Starters
-Desserts
+<div>
 
-
-
-
-Main Courses
-<% @dishes.each do |dish| %>
+<h1>Starters</h1>
+<% @starters.each do |dish| %>
 <form class="form" action="index.html" method="post">
-  <%= dish.name %>: $<%= dish.price %>: $<%= dish.category %>
+  <%= dish.name %> $<%= dish.price %>
   <input type="button" name="addtoorder" id="addtoorder" value="Add to Order" />
   <br />
   <% end %>
 </form>
+
+<h1>Main Courses</h1>
+<% @dishes.each do |dish| %>
+<form class="form" action="index.html" method="post">
+  <%= dish.name %> $<%= dish.price %>
+  <input type="button" name="addtoorder" id="addtoorder" value="Add to Order" />
+  <br />
+  <% end %>
+</form>
+
+<h1>Desserts</h1>
+<% @dishes.each do |dish| %>
+<form class="form" action="index.html" method="post">
+  <%= dish.name %> $<%= dish.price %>
+  <input type="button" name="addtoorder" id="addtoorder" value="Add to Order" />
+  <br />
+  <% end %>
+</form>
+
+</div>
+
+<br/>
 
 <form class="form" action="index.html" method="post">
   <input type="button" name="addto" id="addto" value="CHECKOUT" />

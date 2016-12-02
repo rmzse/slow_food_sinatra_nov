@@ -11,6 +11,7 @@ When(/^I visit the index page$/) do
 end
 
 Then(/^I see "([^"]*)" with price "([^"]*)" and an "([^"]*)" button$/) do |name, price, button|
-  expect(page).to have_content name, price
+  expect(page).to have_content name
+  expect(page).to have_content price
   expect(page).to have_button button
 end

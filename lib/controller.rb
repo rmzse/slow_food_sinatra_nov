@@ -52,6 +52,12 @@ class SlowFood < Sinatra::Base
 
   get '/' do
     @dishes = Dish.all
+    @starters = []
+    @dishes.each do |dish|
+      if dish.category == "Starter"
+        @starters.push(dish)
+      end
+    end
     erb :index
   end
 
