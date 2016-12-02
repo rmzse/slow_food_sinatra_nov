@@ -10,6 +10,7 @@ When(/^I visit the index page$/) do
   visit '/'
 end
 
-Then(/^I see "([^"]*)" with price "([^"]*)" and an "([^"]*)" button$/) do |arg1, arg2, arg3|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I see "([^"]*)" with price "([^"]*)" and an "([^"]*)" button$/) do |name, price, button|
+  expect(page).to have_content name, price
+  expect(page).to have_button button
 end

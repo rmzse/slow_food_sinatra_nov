@@ -51,13 +51,14 @@ class SlowFood < Sinatra::Base
   end
 
   get '/' do
+    @dishes = Dish.all
     erb :index
   end
 
-  get '/dishes' do
-    @dishes = Dish.all
-    erb :dishes
-  end
+  # get '/dishes' do
+  #   @dishes = Dish.all
+  #   erb :dishes
+  # end
 
   get '/auth/login' do
     erb :login
