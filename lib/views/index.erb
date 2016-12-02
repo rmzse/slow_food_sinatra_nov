@@ -10,7 +10,7 @@
 </form>
 
 <h1>Main Courses</h1>
-<% @dishes.each do |dish| %>
+<% @main_courses.each do |dish| %>
 <form class="form" action="index.html" method="post">
   <%= dish.name %> $<%= dish.price %>
   <input type="button" name="addtoorder" id="addtoorder" value="Add to Order" />
@@ -19,7 +19,7 @@
 </form>
 
 <h1>Desserts</h1>
-<% @dishes.each do |dish| %>
+<% @desserts.each do |dish| %>
 <form class="form" action="index.html" method="post">
   <%= dish.name %> $<%= dish.price %>
   <input type="button" name="addtoorder" id="addtoorder" value="Add to Order" />
