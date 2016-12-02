@@ -1,5 +1,5 @@
 When(/^I visit the dishes page$/) do
-  visit '/dishes'
+  visit '/'
 end
 
 Given(/^I have a dish called "([^"]*)" with price "([^"]*)"$/) do |name, price|

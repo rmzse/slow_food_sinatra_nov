@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing button</title>
+</head>
+<body>
+  Main Courses
+  <% @dishes.each do |dish| %>
+    <form class="form" action="/add-to-basket" method="post" id="dish_form_<%= dish.id %>">
+      <%= dish.name %>: $<%= dish.price %>
+      <input type="hidden" name="dish_id" value="<%= dish.id %>">
+      <input class="btn btn-primary" type="submit" value="Add to Order">
+    </form>
+  <br />
+  <% end %>
+
+
+  <form class="form" action="index.html" method="post">
+    <input type="button" name="checkout" id="checkout" value="CHECKOUT" />
+  </form>
+
+</body>
+</html>
