@@ -88,6 +88,8 @@ class SlowFood < Sinatra::Base
 end
 
   get '/order_confirmation' do
+    @current_order = Order.get(session[:order_id])
+    @current_order.pickup_time = (Time.now + 1800).strftime("%H:%M")
     erb :order_confirmation
   end
 
