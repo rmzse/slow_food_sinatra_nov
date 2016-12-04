@@ -7,5 +7,5 @@ Feature: As a Visitor.
 
   Scenario: Visitor clicks Buy now! and is taken to a order confirmation page with pick-up time.
   When I click "Buy now!"
-  Then I should be on the order confiramtion page
+  Then I should be on the order confirmation page
   And I should see "Thank you for your order! Your food will be ready for pickup in 30 minutes!"
