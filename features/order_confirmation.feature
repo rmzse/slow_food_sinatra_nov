@@ -9,4 +9,4 @@ Feature: As a Visitor.
   When I click "Buy now!"
   Then I should be on the order confirmation page
   And I should see "Thank you for your order! Your food will be ready for pick up at"
-  And I should see a pick up time
+  And I should see a pick up time 30 minutes from now

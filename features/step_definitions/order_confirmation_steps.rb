@@ -20,6 +20,6 @@ Then(/^I should be on the order confirmation page$/) do
   expect(page).to have_current_path('/order_confirmation')
 end
 
-Then(/^I should see a pick up time$/) do
+Then(/^I should see a pick up time 30 minutes from now$/) do
   expect(page).to have_content (Time.now + 1800).strftime("%H:%M")
 end
