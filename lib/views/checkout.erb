@@ -2,8 +2,10 @@
   <p><%= order_item.dish.name %> - $<%= order_item.dish.price %></p>
 <% end %>
 
-<p>Total: $<%=@current_order.amount%></p>
+<p>Total: $<%= @current_order.amount %></p>
 
 <div>
-  <input class="btn btn-primary" type="submit" value="Buy now!">
+  <form method="get" action="/order_confirmation">
+    <input class="btn btn-primary" type="submit" value="Buy now!">
+  </form>
 </div>

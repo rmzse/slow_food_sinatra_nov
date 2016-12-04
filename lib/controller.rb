@@ -64,7 +64,7 @@ class SlowFood < Sinatra::Base
     else
       @current_order.order_items.each do |order_item|
         @total = @total + order_item.dish.price
-        @current_order.amount = @total
+        @current_order.amount = @total.round(2)
       end
       erb :checkout
     end
@@ -86,6 +86,12 @@ class SlowFood < Sinatra::Base
     end
   redirect '/'
 end
+
+  get '/order_confirmation' do
+    @current_order = Order.get(session[:order_id])
+    @current_order.pickup_time = (Time.now + 1800)
+    erb :order_confirmation
+  end
 
   get '/auth/login' do
     erb :login
