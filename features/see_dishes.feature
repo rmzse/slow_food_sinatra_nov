@@ -7,11 +7,11 @@ Feature: As a visitor
     And I have a dish called "Salad" with price "4.99"
 
   Scenario: Visitor see dishes
-    When I visit the dishes page
-    Then I see "Main Courses"
-    And I see "Meatballs"
-    And I see "$8.99"
-    And I see "Salad"
-    And I see "$4.99"
-    And I see "Add to Order" button
-    Then I see "CHECKOUT" button
+    When I am on the index page
+    Then I should see "Main Courses"
+    And I should see "Meatballs"
+    And I should see "$8.99"
+    And I should see "Salad"
+    And I should see "$4.99"
+    And I should see "Add to Order" button
+    Then I should see "Checkout" button

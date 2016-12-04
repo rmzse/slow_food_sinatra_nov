@@ -1,0 +1,9 @@
+<% @current_order.order_items.each do |order_item| %>
+  <p><%= order_item.dish.name %> - $<%= order_item.dish.price %></p>
+<% end %>
+
+<p>Total: $<%=@current_order.amount%></p>
+
+<div>
+  <input class="btn btn-primary" type="submit" value="Buy now!">
+</div>

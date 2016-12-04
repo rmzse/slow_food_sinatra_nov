@@ -1,23 +1,17 @@
-When(/^I visit the site$/) do
-  visit '/'
+When(/^I click "([^"]*)"$/) do |button|
+  click_button button
 end
 
-When(/^I click "([^"]*)"$/) do |add_button|
-  click_button add_button
+Then(/^I should see "([^"]*)"$/) do |content|
+  expect(page).to have_content content
 end
-
-Then(/^I should see "([^"]*)"$/) do |message_added|
-  expect(page).to have_content message_added
-end
-
 
 When(/^I have a dish in my order$/) do
   steps %q{
     When I click "Add to Order" for "Salad"
-    Then I should see "added to basket"
+    Then I should see "added to order"
   }
 end
-
 
 Then(/^I should have "([^"]*)" dishes on my order$/) do |count|
   order = Order.last
