@@ -105,7 +105,7 @@ class SlowFood < Sinatra::Base
       flash[:error] = "could not add to order"
     end
   redirect '/'
-end
+  end
 
   get '/order_confirmation' do
     @current_order = Order.get(session[:order_id])
