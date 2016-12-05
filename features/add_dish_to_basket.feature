@@ -3,9 +3,11 @@ Feature: As a Visitor
   I need to be able to add dishes to an order.
 
   Background:
-    Given I have a dish called "Meatballs" with price "8.99"
-    And I have a dish called "Salad" with price "4.99"
-
+    Given I have a dish called "Garlic Bread" with price "3.99" and category "Starter"
+    And I have a dish called "Salad" with price "4.99" and category "Main Course"
+    And I have a dish called "Meatballs" with price "8.99" and category "Main Course"
+    And I have a dish called "Brule" with price "5.99" and category "Dessert"
+    
   Scenario: Visitor adds first dish to order
     When I visit the site
     And I click "Add to Order" for "Meatballs"

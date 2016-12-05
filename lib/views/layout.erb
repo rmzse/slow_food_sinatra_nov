@@ -1,32 +1,44 @@
-<!DOCTYPE html>
 <html>
-<head>
-<body>
-<title>Sinatra Warden</title>
+  <head>
+  <%= bootstrap_css true %>
+  <%= bootstrap_js_legacy %>
+  </head>
+  <body>
+    <title>SlowFood App Nov 2016</title>
+    <% container :div do %>
+      <% row :div do %>
+        <% cols :a, cols: "a2b2", offset: "a2b2", any1:"attr1", "data-any2" => "attr2" do %>
+        <title>SlowFood App Nov 2016</title>
 
-<h1>User authentication</h1>
+        <!-- <h1>User authentication</h1> -->
 
-<p>
-  <% if current_user %>
-    Logged in as <%= current_user.username %>
-    <a href="/auth/logout">Log Out</a></p>
-  <% else %>
+        <p>
+          <% if current_user %>
+            Logged in as <%= current_user.username %>
+            <a href="/auth/logout">Log Out</a></p>
+          <% else %>
 
-    <a href="/auth/login">Log In</a>
-  <% end %>
+            <a href="/auth/login">Log In</a>
+          <% end %>
 
-  <% if flash[:success] %>
-    <div style="color:green;">
-      <%= flash[:success] %>
-    </div>
-  <% end %>
+          <% if flash[:success] %>
+            <div style="color:green;">
+              <%= flash[:success] %>
+            </div>
+          <% end %>
 
-  <% if flash[:error] %>
-    <div style="color:red;">
-      <%= flash[:error] %>
-    </div>
-  <% end %>
-
-  <%= yield %>
+          <% if flash[:error] %>
+            <div style="color:red;">
+              <%= flash[:error] %>
+            </div>
+          <% end %>
+        <h1>What tasty food do you want to have today?</h1>
+          <%= yield %>
+        <% end %>
+      <% end %>
+      <% row :section do %>
+      <% end %>
+    <% end %>
+    <%= bootstrap_js_default %>
   </body>
 </html>

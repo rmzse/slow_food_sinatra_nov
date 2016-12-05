@@ -4,15 +4,40 @@
 <title>Testing button</title>
 </head>
 <body>
-  Main Courses
-  <% @dishes.each do |dish| %>
-    <form class="form" action="/add-to-order" method="post" id="dish_form_<%= dish.id %>">
-      <%= dish.name %>: $<%= dish.price %>
-      <input type="hidden" name="dish_id" value="<%= dish.id %>">
-      <input class="btn btn-primary" type="submit" value="Add to Order">
-    </form>
+  <div>
+
+  <h1>Starters</h1>
+  <% @starters.each do |dish| %>
+  <form class="form" action="/add-to-order" method="post" id="dish_form_<%= dish.id %>">
+    <%= dish.name %> $<%= dish.price %>
+    <input type="hidden" name="dish_id" value="<%= dish.id %>">
+    <input class="btn btn-primary" type="submit" value="Add to Order">
+  </form>
   <br />
   <% end %>
+
+  <h1>Main Courses</h1>
+  <% @main_courses.each do |dish| %>
+  <form class="form" action="/add-to-order" method="post" id="dish_form_<%= dish.id %>">
+    <%= dish.name %> $<%= dish.price %>
+    <input type="hidden" name="dish_id" value="<%= dish.id %>">
+    <input class="btn btn-primary" type="submit" value="Add to Order">
+  </form>
+  <br />
+  <% end %>
+
+  <h1>Desserts</h1>
+  <% @desserts.each do |dish| %>
+  <form class="form" action="/add-to-order" method="post" id="dish_form_<%= dish.id %>">
+    <%= dish.name %> $<%= dish.price %>
+    <input type="hidden" name="dish_id" value="<%= dish.id %>">
+    <input class="btn btn-primary" type="submit" value="Add to Order">
+  </form>
+  <br />
+  <% end %>
+
+  </div>
+  <br/>
 
   <div>
     <form method="post" action="/checkout">
