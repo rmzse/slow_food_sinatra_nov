@@ -7,7 +7,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'sinatra_warden'
 #gem 'warden', '1.2.3'
 gem 'shotgun', '0.9.1'
-
+gem 'sinatra-bootstrap', require: 'sinatra/bootstrap'
 gem 'data_mapper'
 gem 'pg'
 gem 'dm-postgres-adapter'

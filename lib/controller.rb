@@ -4,6 +4,7 @@ Dir[File.join(File.dirname(__FILE__), 'models', '*.rb')].each { |file| require f
 require_relative 'helpers/data_mapper'
 require_relative 'helpers/warden'
 require 'pry'
+require 'sinatra/bootstrap'
 
 
 
@@ -14,6 +15,7 @@ class SlowFood < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   register Sinatra::Warden
+  register Sinatra::Bootstrap::Assets
   set :session_secret, "supersecret"
 
   #binding.pry
@@ -52,6 +54,26 @@ class SlowFood < Sinatra::Base
 
   get '/' do
     @dishes = Dish.all
+    @starters = []
+    @dishes.each do |dish|
+      if dish.category == "Starter"
+        @starters.push(dish)
+      end
+    end
+
+    @main_courses = []
+    @dishes.each do |dish|
+      if dish.category == "Main Course"
+        @main_courses.push(dish)
+      end
+    end
+
+    @desserts = []
+    @dishes.each do |dish|
+      if dish.category == "Dessert"
+        @desserts.push(dish)
+      end
+    end
     erb :index
   end
 
@@ -64,7 +86,7 @@ class SlowFood < Sinatra::Base
     else
       @current_order.order_items.each do |order_item|
         @total = @total + order_item.dish.price
-        @current_order.amount = @total
+        @current_order.amount = @total.round(2)
       end
       erb :checkout
     end
@@ -85,7 +107,19 @@ class SlowFood < Sinatra::Base
       flash[:error] = "could not add to order"
     end
   redirect '/'
-end
+  end
+
+  get '/order_confirmation' do
+    @current_order = Order.get(session[:order_id])
+    @current_order.pickup_time = (Time.now + 1800).strftime("%H:%M")
+    erb :order_confirmation
+  end
+
+  get '/order_confirmation' do
+    @current_order = Order.get(session[:order_id])
+    @current_order.pickup_time = (Time.now + 1800)
+    erb :order_confirmation
+  end
 
   get '/auth/login' do
     erb :login
