@@ -6,11 +6,6 @@ require_relative 'helpers/warden'
 require 'pry'
 require 'sinatra/bootstrap'
 
-
-
-
-
-
 class SlowFood < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
